@@ -1,4 +1,4 @@
-package com.herziger.JsonHandler;
+package com.herziger.JsonHandler.Parser;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;

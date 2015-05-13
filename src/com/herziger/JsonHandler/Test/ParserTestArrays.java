@@ -10,7 +10,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.herziger.JsonHandler.Parser;
+import com.herziger.JsonHandler.Parser.Parser;
 
 public class ParserTestArrays {
 	private static Parser parser;

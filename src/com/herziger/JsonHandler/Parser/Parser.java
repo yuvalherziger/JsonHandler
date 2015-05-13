@@ -29,6 +29,7 @@ public class Parser {
 		this.jsonString = jsonString;
 		hashMapInitiated = false;
 	}
+
 	// empty constructor:
 	public Parser() {
 		hashMapInitiated = false;
@@ -67,15 +68,16 @@ public class Parser {
 		this.jsonHashMap = jsonHashMap;
 		hashMapInitiated = true;
 	}
+
 	public void setJsonObject(JsonParser _jsonParser) {
 		jsonParser = _jsonParser;
 	}
-	
+
 	// initialize JSON object
 	public void initJsonObject() throws JsonParseException, IOException {
 		setJsonObject(new JsonFactory().createJsonParser(jsonString));
 	}
-	
+
 	// returns a 2-D array of keys and values (i.e. [[k1,k2,k3],[v1,v2,v3]]):
 	@SuppressWarnings("unchecked")
 	public String[][] getKeyValuePairs() throws JsonParseException,
@@ -101,8 +103,9 @@ public class Parser {
 		String[][] objectElements = new String[][] { objectKeys, objectValues };
 		return objectElements;
 	}
-	
-	// some JSON arrays require quite some drill down to the relevant data object 
+
+	// some JSON arrays require quite some drill down to the relevant data
+	// object
 	// (e.g. self explanatory JSONs in some web tracking platforms):
 	public void drillThroughObjectKeys(String[] _key)
 			throws JsonParseException, IOException {
@@ -113,7 +116,7 @@ public class Parser {
 		setJsonObject(new JsonFactory().createJsonParser(currentJsonObject
 				.toJSONString()));
 	}
-	
+
 	// simple getter for a single value, based on a key:
 	@SuppressWarnings("unchecked")
 	public String getValueByKey(String _key) throws JsonParseException,
@@ -123,8 +126,10 @@ public class Parser {
 					HashMap.class));
 		return String.valueOf(jsonHashMap.get(_key));
 	}
+
 	// returns a 2-d array instead of a HashMap,
-	// that is, as some compilers like earler versions of Janino can't handle generics:
+	// that is, as some compilers like earler versions of Janino can't handle
+	// generics:
 	public String[][] get2DimValuesArray(String valuesKeyName) {
 		String values = "";
 		try {
@@ -157,7 +162,7 @@ public class Parser {
 		}
 		return null;
 	}
-	
+
 	// returns a 1-d array based on a key name:
 	public String[] get1DimLabelsArray(String labelsKeyName) {
 		String labels = "";
